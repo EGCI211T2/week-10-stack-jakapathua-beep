@@ -5,8 +5,7 @@ using namespace std;
 
 int main(int argc, char **argv){
     Stack s;
-   
-  Exercise 1
+
     int i;
     for(i=1;i<argc;i++){
         if(argv[i][0]==  'x')  s.pop();

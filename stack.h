@@ -1,18 +1,24 @@
 #ifndef stack_h
 #define stack_h
 #include "node.h"
+#include <iostream>
+#include <cstring>
+#include "stack.h"
+using namespace std;
+
 class Stack {
     NodePtr top;
     int size;
 public:
-    void push(int);
-    int pop();
+    void push(char);
+    char pop();
     Stack();
     ~Stack();
+    int get_size();
 };
 
 
-void Stack::push(int x){
+void Stack::push(char x){
   NodePtr new_node=new NODE(x);
   if(new_node){
             new_node->set_next(top);
@@ -23,10 +29,10 @@ void Stack::push(int x){
     
 }
 
-int Stack::pop(){
+char Stack::pop(){
         NodePtr t=top;
     if(t!=NULL){
-        int value;
+        char value;
         value=t->get_value();
 
         //move top to the next one
@@ -34,6 +40,7 @@ int Stack::pop(){
         
         --size;
         
+
         delete t;
         return value;
     
@@ -56,6 +63,10 @@ Stack::~Stack(){
     pop();
     n--;
     }
+}
+
+int Stack::get_size(){
+    return size;
 }
 
 
